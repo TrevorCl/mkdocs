@@ -1,0 +1,65 @@
+site_name: My Docs
+site_url: https://mydomain.org/mysite
+theme:
+  name: material
+  palette: 
+    
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.instant.preview
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+   # - toc.follow
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+
+plugins:
+  - search
+  - tags
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+
+nav:
+  - Home: index.md 
+  - R:
+    - R doc: r/R doc.md
+  - Python:
+    - Overview: python/index.md
+    - Introduction: python/introduction.md
+    - Data Types: python/data_types.md
+    - Control Flow: python/control_flow.md
+    - Functions: python/functions.md
+    - Modules: python/modules.md
+    - Local environment: python/venv.md
+    - fastapi: python/fastapi/introduction.md
+  - Tags: tags.md
