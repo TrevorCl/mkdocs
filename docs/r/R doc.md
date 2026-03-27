@@ -18,6 +18,70 @@ tags:
     4. ctrl + shift + R adds sections
 
 
-# next
-fsdf
+# Data types
+Vectors
+Lists
+Matrices
+Arrays
+Factors
+Data Frames
 
+# VECTORS
+## 6 types of atomic vectors
+The simplest of these objects is the vector object and there are six data types of these atomic vectors, also termed as six classes of vectors. The other R-Objects are built upon the atomic vectors
+
+Even when you write a single value it is a vector of length 1
+
+=== **Logical** 
+    v<- TRUE
+
+=== **Numeric**
+    v <- 23.8 
+
+=== **Integer**
+    v <- 23L
+
+=== **Complex**
+    v <- 23+5i
+
+=== **Character**
+   v <- "TRUE"
+   v <- 'TRUE'
+
+=== **RAW**
+   v <- charToRaw("TRUE")
+
+## Multiple element vectors
+v <- 5:12 
+v <- 3.4:10.4 
+if the last value is not in the sequence then it is left
+
+## seq operator
+seq(from, to by = )
+v <- seq(5,9, by = 0.4)
+
+## c function
+v <- c("apple", 5, TRUE) converts all to character type
+
+### indexing
+t <- c("Sun","Mon","Tue","Wed","Thurs","Fri","Sat")
+
+**Accessing vector elements using position**.
+t <- c("Sun","Mon","Tue","Wed","Thurs","Fri","Sat")  
+u <- t[c(2,3,6)]  
+ "Mon" "Tue" "Fri"  
+
+**Accessing vector elements using logical indexing.**
+v <- t[c(TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE)]  
+"Sun" "Fri"
+
+**Accessing vector elements using negative indexing.**
+negative drops from the vector
+x <- t[c(-2,-5)]
+"Sun" "Tue" "Wed" "Fri" "Sat"
+
+**Accessing vector elements using 0/1 indexing.**
+y <- t[c(0,0,0,0,0,0,1)]
+"Sun"
+
+ 
