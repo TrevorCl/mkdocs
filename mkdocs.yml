@@ -33,7 +33,7 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.copy
-
+    - content.tabs.link
 
 plugins:
   - search
@@ -47,8 +47,10 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
-
-
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
 nav:
   - Home: index.md 
   - R:
