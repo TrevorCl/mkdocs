@@ -32,56 +32,71 @@ The simplest of these objects is the vector object and there are six data types 
 
 Even when you write a single value it is a vector of length 1
 
-=== **Logical** 
-    v<- TRUE
+=== "Logical"   
+    v<- TRUE  
 
-=== **Numeric**
-    v <- 23.8 
+=== "Numeric"  
+    v <- 23.8  
 
-=== **Integer**
-    v <- 23L
+=== "Integer"  
+    v <- 23L  
 
-=== **Complex**
-    v <- 23+5i
+=== "Complex"  
+    v <- 23+5i  
 
-=== **Character**
-   v <- "TRUE"
-   v <- 'TRUE'
-
-=== **RAW**
-   v <- charToRaw("TRUE")
+=== "Character"  
+```  
+   v <- "TRUE"  
+   v <- 'TRUE'    
+```  
+=== "RAW"  
+   v <- charToRaw("TRUE")  
 
 ## Multiple element vectors
-v <- 5:12 
+```r
+v <- 5:12   
 v <- 3.4:10.4 
-if the last value is not in the sequence then it is left
+#if the last value is not in the sequence then it is left  
+```
 
-## seq operator
-seq(from, to by = )
-v <- seq(5,9, by = 0.4)
+## seq operator  
+```r
+seq(from, to by = )  
+v <- seq(5,9, by = 0.4)  
+```
 
-## c function
-v <- c("apple", 5, TRUE) converts all to character type
+## c function  
+```r
+v <- c("apple", 5, TRUE) converts all to character type  
+```
 
 ### indexing
+```r
 t <- c("Sun","Mon","Tue","Wed","Thurs","Fri","Sat")
+```
 
-**Accessing vector elements using position**.
-t <- c("Sun","Mon","Tue","Wed","Thurs","Fri","Sat")  
-u <- t[c(2,3,6)]  
- "Mon" "Tue" "Fri"  
+#### Accessing vector elements using position
+```r
+u <- t[c(2,3,6)]
+> "Mon" "Tue" "Fri"
+```
 
-**Accessing vector elements using logical indexing.**
-v <- t[c(TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE)]  
-"Sun" "Fri"
+#### Accessing vector elements using logical indexing
+```r
+v <- t[c(TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE)]
+> "Sun" "Fri"
+```
 
-**Accessing vector elements using negative indexing.**
-negative drops from the vector
+#### Accessing vector elements using negative indexing
+```r
+# negative drops from the vector
 x <- t[c(-2,-5)]
-"Sun" "Tue" "Wed" "Fri" "Sat"
+> "Sun" "Tue" "Wed" "Fri" "Sat"
+```
 
-**Accessing vector elements using 0/1 indexing.**
+#### Accessing vector elements using 0/1 indexing
+```r
 y <- t[c(0,0,0,0,0,0,1)]
-"Sun"
-
+> "Sun"
+```
  

@@ -64,4 +64,6 @@ nav:
     - Modules: python/modules.md
     - Local environment: python/venv.md
     - fastapi: python/fastapi/introduction.md
+  - Git:
+    - Overview: git/index.md
   - Tags: tags.md
