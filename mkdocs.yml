@@ -19,9 +19,6 @@ theme:
         name: Switch to light mode
 
   features:
-    - navigation.instant
-    - navigation.instant.progress
-    - navigation.instant.preview
     - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
@@ -66,4 +63,6 @@ nav:
     - fastapi: python/fastapi/introduction.md
   - Git:
     - Overview: git/index.md
+    - Commands: git/commands.md
+    - Shared folder: git/shared folder.md
   - Tags: tags.md

@@ -100,3 +100,9 @@ y <- t[c(0,0,0,0,0,0,1)]
 > "Sun"
 ```
  
+| command | desc |
+|----|-------|
+| setwd() | |
+| rm(list=ls()) | delete vars in workspace |
+| paste or paste0() | concatenate string  |
+| paste or paste0() | concatenate string  |
