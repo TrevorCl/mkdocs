@@ -152,3 +152,28 @@ git commit -m "sync folders from $SOURCE into shared/ on $CURRENT"
 echo "Synced these folders from $SOURCE into shared/:"
 echo "$FOLDERS"
 ```
+
+
+
+## pull request / remote
+he typical workflow is:
+```bash
+# 1. Fetch latest remote state
+git fetch
+
+# 2. Check if you're ahead or behind
+git status
+
+```
+git status will then tell you things like:  
+"Your branch is ahead of 'origin/main' by 2 commits" (you have local commits to push)  
+"Your branch is behind 'origin/main' by 1 commit" (remote has changes you don't)  
+"Your branch is up to date with 'origin/main'" (in sync)  
+
+```bash
+git fetch          # See what's changed remotely
+git status         # Check the difference
+git pull           # Bring remote changes into your branch (if any)
+git push           # Send your commits to remote
+```
+Most of the time you can skip fetch and just do git pull then git push, but fetch + status lets you inspect before merging.
