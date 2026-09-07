@@ -69,7 +69,7 @@ can erassign a branch to a comit with -f option
 # moves - by force -  main branch to 3 behind HEAD  
 git branch -f main HEAD~3 
 git branch -f main c6
-git branch -f bugFox HEAD~2
+git branch -f bugFix HEAD~2
 git checkout HEAD^
 ```  
 

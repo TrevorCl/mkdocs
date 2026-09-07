@@ -45,12 +45,12 @@ Even when you write a single value it is a vector of length 1
     v <- 23+5i  
 
 === "Character"  
-```  
    v <- "TRUE"  
    v <- 'TRUE'    
-```  
+
 === "RAW"  
    v <- charToRaw("TRUE")  
+
 
 ## Multiple element vectors
 ```r
@@ -100,6 +100,44 @@ y <- t[c(0,0,0,0,0,0,1)]
 > "Sun"
 ```
  
+# read csv
+``` R
+# create a file to read a csv  
+file.create("tablulate.R")  
+
+# creates a table of 1 variables and 4 obs  
+votes <- read.table("votes.csv")  
+View(votes)  
+
+# add separator  
+votes <- read.table("votes.csv",sep=",", header=TRUE)  
+
+# read.csv - returns a DataFrame  
+votes <- read.csv("votes.csv)"  
+
+# accessed by 
+votes[row,column]  
+votes[,2]  
+votes$poll  
+# add a column to the dataframe with the total
+votes$total <- votes$poll + votes$mail  
+```
+
+
+# Write csv
+``` R
+write.csv(votes,"totals.csv", row.names=FALSE)  
+colnames(votes)  
+rownames(votes)   
+```
+
+# Read from url
+``` R
+url <- "http:\\.....x.csv"
+votes <- read.csv(url)
+```
+
+
 | command | desc |
 |----|-------|
 | setwd() | |
