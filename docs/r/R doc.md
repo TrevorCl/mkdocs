@@ -223,10 +223,3 @@ dset <- dset |>
   dplyr::ungroup()  
 ```
 
-
-| command | desc |
-|----|-------|
-| setwd() | |
-| rm(list=ls()) | delete vars in workspace |
-| paste or paste0() | concatenate string  |
-| paste or paste0() | concatenate string  |
