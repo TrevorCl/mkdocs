@@ -138,6 +138,92 @@ votes <- read.csv(url)
 ```
 
 
+# Build tibble of random data 
+``` R
+library(tibble)
+
+set.seed(123)  # Makes the random data reproducible
+
+n <- 100
+
+dset <- tibble(
+  patient_number = sprintf("P%03d", 1:n),
+  age = sample(18:85, size = n, replace = TRUE),
+  sex = sample(c("Female", "Male"), size = n, replace = TRUE),
+  weight_kg = round(rnorm(n, mean = 75, sd = 15), 1),
+  height_cm = round(rnorm(n, mean = 170, sd = 10), 1)
+)
+
+dset
+```
+
+## Filter cols 
+``` R
+dset |> dplyr::filter(age >= 30)
+```
+
+
+## Update cols 
+``` R
+dset <- dset |>
+  dplyr::mutate(
+    weight_kg = pmax(40, pmin(weight_kg, 150)),
+    height_cm = pmax(140, pmin(height_cm, 210))
+  )
+```
+
+## First.Var
+``` R
+# create a calculated variable
+dset <- dset |>
+  dplyr::mutate(
+    bmi = weight_kg / (height_cm / 100)^2,
+    age_group = ifelse(age >= 30, "30+", "Under 30")
+  )
+
+#In SAS, first.patient identifies the first observation within each patient group. In R, sort and group the data, then use row_number():
+dset <- dset |>
+  dplyr::arrange(patient_number, visit_date) |>
+  dplyr::group_by(patient_number) |>
+  dplyr::mutate(
+    first_patient = dplyr::row_number() == 1
+  ) |>
+  dplyr::ungroup()
+
+# Keep only first record in group
+first_records <- dset |>
+  dplyr::arrange(patient_number, visit_date) |>
+  dplyr::group_by(patient_number) |>
+  dplyr::slice_head(n = 1) |>
+  dplyr::ungroup()
+
+# Last record
+last_records <- dset |>
+  dplyr::arrange(patient_number, visit_date) |>
+  dplyr::group_by(patient_number) |>
+  dplyr::slice_tail(n = 1) |>
+  dplyr::ungroup()
+```
+
+## Last record in datafram
+``` R
+dset <- dset |>
+  dplyr::mutate(
+    end_of_file = dplyr::row_number() == dplyr::n()
+  )
+```
+
+## Last record for each subject
+``` R
+dset <- dset |>
+  dplyr::group_by(patient_number) |>
+  dplyr::mutate(
+    last_patient = dplyr::row_number() == dplyr::n()
+  ) |>
+  dplyr::ungroup()  
+```
+
+
 | command | desc |
 |----|-------|
 | setwd() | |
