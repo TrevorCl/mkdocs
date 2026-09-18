@@ -157,6 +157,16 @@ dset <- tibble(
 dset
 ```
 
+For better quality, make the values within a range
+``` R
+dset <- dset |>
+  dplyr::mutate(
+    weight_kg = pmax(40, pmin(weight_kg, 150)),
+    height_cm = pmax(140, pmin(height_cm, 210))
+  )
+```
+
+
 ## Filter cols 
 ``` R
 dset |> dplyr::filter(age >= 30)
