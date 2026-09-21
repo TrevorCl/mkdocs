@@ -233,29 +233,31 @@ dset <- dset |>
   dplyr::ungroup()  
 ```
 
-# Proc contents
+# Files
+How could i get the file name and creation and last modified date?
+Use file.info(). It returns metadata for every path supplied:
 ``` R
-library(haven)
-library(purrr)
-library(dplyr)
+fn <- list.files(full.names = TRUE)
+file_details <- file.info(fn)[, c("ctime", "mtime")]
+file_details
+```
+Using a tibble
+``` R
+library(tibble)
 
-lib_path <- "C:/path/to/sas/library"
-
-files <- list.files(lib_path, pattern = "\\.sas7bdat$", full.names = TRUE)
-
-contents <- map_dfr(files, function(f) {
-  df <- read_sas(f)
-  tibble(
-    dataset = tools::file_path_sans_ext(basename(f)),
-    variable = names(df),
-    label = sapply(df, function(x) attr(x, "label") %||% NA_character_),
-    type = sapply(df, class)
+file_details <- tibble(
+  file = list.files(full.names = TRUE)
+) |>
+  dplyr::mutate(
+    created = file.info(file)$ctime,
+    modified = file.info(file)$mtime
   )
-})
 
-datasets_with_fl <- contents |>
-  filter(grepl("FL$", variable)) |>
-  distinct(dataset)
+file_details
+```
 
-datasets_with_fl
+
+
+
+
 ```
