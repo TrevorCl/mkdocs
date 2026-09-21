@@ -57,3 +57,25 @@ for (file in fn) {
 }
 ```  
 
+# Function parameters
+``` R
+library(dplyr)
+
+keep_columns <- function(data, vars) {
+  data |>
+    select({{ vars }})
+}
+dset <- tibble(
+  USUBJID = c("001", "002"),
+  AGE = c(42, 57),
+  SAFFL = c("Y", "Y"),
+  ITTFL = c("Y", "N")
+)
+
+keep_columns(dset, ends_with("FL"))
+keep_columns(dset, age)
+keep_columns(dset, c(patient_number, age, sex))
+keep_columns(dset, ends_with("FL"))
+keep_columns(dset, starts_with("visit_"))
+```
+
