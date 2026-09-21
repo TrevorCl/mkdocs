@@ -35,3 +35,25 @@ datasets_with_fl <- contents |>
 
 datasets_with_fl
 ```
+
+
+# replicate powershell for-each
+``` R
+fn <- list.files()
+paste0("The file is ", fn)
+```
+
+For an explicit per-item operation, similar to PowerShell’s ForEach-Object, use purrr::walk():
+``` R
+library(purrr)
+fn |>
+  walk(\(file) cat("The file is", file, "\n"))
+```
+
+Or use base R:
+``` R
+for (file in fn) {
+  cat("The file is", file, "\n")
+}
+```  
+
