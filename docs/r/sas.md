@@ -71,11 +71,14 @@ dset <- tibble(
   SAFFL = c("Y", "Y"),
   ITTFL = c("Y", "N")
 )
+keep_columns(dset, ends_with("FL"))
+keep_columns(dset, AGE)
+keep_columns(dset, c(AGE, SAFFL))
+keep_columns(dset, c(USUBJID, SEX, SEX))
+keep_columns(dset, ends_with("FL"))
+keep_columns(dset, starts_with("VISIT_"))
 
-keep_columns(dset, ends_with("FL"))
-keep_columns(dset, age)
-keep_columns(dset, c(patient_number, age, sex))
-keep_columns(dset, ends_with("FL"))
-keep_columns(dset, starts_with("visit_"))
+dset |> keep_columns(AGE)
+
 ```
 
