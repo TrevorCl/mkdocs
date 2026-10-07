@@ -127,6 +127,7 @@ y <- t[c(0,0,0,0,0,0,1)]
 
 # List
 ```r
+thislist <- list("apple", "banana", "cherry")
 v <- c(a = 1, b = 2, c = 3)
 l <- list(a = 1, b = "x", c = 1:3)
 ```
