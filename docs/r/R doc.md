@@ -219,7 +219,24 @@ Matrix_Combined <- cbind(Matrix1, Matrix2)
 Matrix_Combined
 ```
 
- 
+# Array
+```r
+# one dimensional
+arr <- c(1:24)
+# multi dimensional
+arr <= array(1:24, dim-c(4,3,2)) # rows, cols, n dimensions
+
+thisarray <- c(1:24)
+
+# Access all the items from the first row from matrix one
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+multiarray[c(1),,1]
+
+# Access all the items from the first column from matrix one
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+multiarray[,c(1),1]
+
+```
 # Read csv
 ``` R
 # create a file to read a csv  
