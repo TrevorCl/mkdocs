@@ -51,7 +51,31 @@ Even when you write a single value it is a vector of length 1
 === "RAW"  
    v <- charToRaw("TRUE")  
 
+## Length
+```r
+v <- 5:12   
+length(v)
+```
+## Sort
+```r
+v <- 5:12   
+sort(v)
+```
+## Access
+```r
+v <- 5:12
+# 1 to length
+v[1]
+v[c(1,2)]
+v[c(-1)]
+```
 
+## Change
+```r
+v <- 5:12
+# 1 to length
+v[1] <- 33
+```
 ## Multiple element vectors
 ```r
 v <- 5:12   
