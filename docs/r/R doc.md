@@ -123,6 +123,54 @@ x <- t[c(-2,-5)]
 y <- t[c(0,0,0,0,0,0,1)]
 > "Sun"
 ```
+
+
+# List
+```r
+v <- c(a = 1, b = 2, c = 3)
+l <- list(a = 1, b = "x", c = 1:3)
+```
+| Operation |	Vector  v |	List l |
+|--|--|--|
+|[1]| c(a = 1), still a vector|list(a = 1), still a list|
+|[[1]]|1|1, the element itself|
+|$a|error on atomic vectors|1|
+|["a"]|c(a = 1)|list(a = 1)|
+|[["c"]]|3|1:3|
+|Mixed types|c(1, "x") becomes c("1", "x")|kept as they are|
+|Arithmetic|v * 2 works|l * 2 gives an error|
+|Apply a function|sqrt(v)||lapply(l, length)|
+
+The difference that matters most:
+[ keeps the container, so on a list you get back a smaller list.
+[[ and $ pull out a single element.
+
+## exists
+``` R
+"apple" %in% thislist
+```
+## add, remove
+``` R
+append(thislist,"orange", after =2)
+newlist <- thislist[-1] # removes first 
+newlist <- thislist[-(2:5)] # removes -2,-3,-4,-5
+```
+## extracting a range from the list 
+``` R
+thislist[2:5]
+```
+## looping 
+``` R
+for (x in thislist) {
+  print (x)
+}
+```
+## Joining
+``` R
+newlist <-c(list1,list2,list3)
+```
+
+
  
 # read csv
 ``` R
