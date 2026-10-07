@@ -139,7 +139,7 @@ l <- list(a = 1, b = "x", c = 1:3)
 |[["c"]]|3|1:3|
 |Mixed types|c(1, "x") becomes c("1", "x")|kept as they are|
 |Arithmetic|v * 2 works|l * 2 gives an error|
-|Apply a function|sqrt(v)||lapply(l, length)|
+|Apply a function|sqrt(v)|lapply(l, length)|
 
 The difference that matters most:
 [ keeps the container, so on a list you get back a smaller list.
