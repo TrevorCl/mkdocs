@@ -235,8 +235,28 @@ multiarray[c(1),,1]
 # Access all the items from the first column from matrix one
 multiarray <- array(thisarray, dim = c(4, 3, 2))
 multiarray[,c(1),1]
-
 ```
+
+# Factors
+```r
+music_genre <- factor(c("Jazz", "Rock", "Classic", "Classic", "Pop", "Jazz", "Rock", "Jazz"))
+
+levels(music_genre)
+
+music_genre <- factor(c("Jazz", "Rock", "Classic", "Classic", "Pop", "Jazz", "Rock", "Jazz"), levels = c("Classic", "Jazz", "Pop", "Rock", "Opera"))
+
+levels(music_genre)
+
+# Only assign to what is in the levels
+music_genre[3] <- "Opera"
+
+music_genre[3]
+```
+
+
+
+
+
 # Read csv
 ``` R
 # create a file to read a csv  
