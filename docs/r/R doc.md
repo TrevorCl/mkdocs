@@ -254,7 +254,29 @@ music_genre[3]
 ```
 
 
+# stats
+```r
+Data_Cars <- mtcars
 
+max(Data_Cars$hp)
+min(Data_Cars$hp)
+
+rownames(Data_Cars)[which.max(Data_Cars$hp)]
+rownames(Data_Cars)[which.min(Data_Cars$hp)]
+
+Data_Cars[which.max(Data_Cars$hp), ]
+Data_Cars[which.min(Data_Cars$hp),]
+
+mean(Data_Cars$wt)
+
+manu <- word(rownames(mtcars), 1)
+sort(-table(manu))
+
+# c() specifies which percentile you want
+quantile(Data_Cars$wt, c(0.75))
+
+quantile(Data_Cars$wt)
+```
 
 
 # Read csv
