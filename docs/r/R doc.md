@@ -254,6 +254,20 @@ music_genre[3]
 ```
 
 
+# Data Frame
+```r
+ L3 <- LETTERS[1:3]
+ fac <- sample(L3, 10, replace = TRUE)
+ d <- data.frame(x = 1, y = 1:10, fac = fac)
+
+# add col iterating between x and y
+ d2 <- cbind(d,default=c('x','y'))
+
+# add col x 
+ d2 <- cbind(d,reason='x') 
+```
+
+
 # stats
 ```r
 Data_Cars <- mtcars
