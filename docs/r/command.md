@@ -16,6 +16,7 @@
    <tr>
     <td>t</td>
     <td>Transpose
+       
       ```r
       ex1 <- c(pt = 1,site = 2, position = 3, test=4)
       ex2 <- t(ex1)
@@ -27,6 +28,7 @@
   <tr>
     <td>word</td>
     <td>
+       
       ```r
       library(stringr) 
       dset <- mtcars 
