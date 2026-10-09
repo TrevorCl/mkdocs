@@ -23,6 +23,7 @@
       #      pt site position test
       # [1,]  1    2        3    4
     ```
+    
     </td>
   </tr>        
   <tr>
@@ -36,10 +37,29 @@
       rname=rownames(dset) 
       manu <- unique(word(rownames(mtcars), 1))
       ```
+      
     </td>
   </tr>
   <tr>
     <td>cut</td>
-    <td></td>
+    <td>
+
+       ```r
+         incomes <- sample(35:100, 20, replace = TRUE)
+         factor(cut(incomes, breaks = 35+10*(0:7))) -> incomef
+         #[1] (85,95]  (75,85]  (65,75]  (35,45]  (75,85]  (35,45]  (95,105] (85,95]  (85,95]  (35,45]  (35,45]  (85,95]  (35,45] 
+[14] (75,85]  (75,85]  (45,55]  (35,45]  (35,45]  (45,55]  (65,75] 
+Levels: (35,45] (45,55] (65,75] (75,85] (85,95] (95,105]
+  # As data frame with income and cut
+        df <- data.frame(income = incomes, incomef = incomef)
+        df                      # prints every row  
+       #    income  incomef
+       # 1      86  (85,95]
+       # 2      80  (75,85]
+       # 3      67  (65,75]
+       # 4      37  (35,45]  
+       ```
+       
+    </td>
   </tr>        
 </table>
