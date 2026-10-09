@@ -11,3 +11,33 @@
 | word | | library(stringr) \n dset <- mtcars \n dim(dset) \n rname=rownames(dset) \n rname \m manu <- unique(word(rownames(mtcars), 1))  |
 | gsub | | |
 | str_c | |  |
+
+<table>
+   <tr>
+    <td>t</td>
+    <td>Transpose
+      ```r
+      ex1 <- c(pt = 1,site = 2, position = 3, test=4)
+      ex2 <- t(ex1)
+      #      pt site position test
+      # [1,]  1    2        3    4
+    ```
+    </td>
+  </tr>        
+  <tr>
+    <td>word</td>
+    <td>
+      ```r
+      library(stringr) 
+      dset <- mtcars 
+      dim(dset) 
+      rname=rownames(dset) 
+      manu <- unique(word(rownames(mtcars), 1))
+      ```
+    </td>
+  </tr>
+  <tr>
+    <td>cut</td>
+    <td></td>
+  </tr>        
+</table>
