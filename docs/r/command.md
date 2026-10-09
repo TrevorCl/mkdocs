@@ -19,13 +19,15 @@
        
 ```r
 ex1 <- c(pt = 1,site = 2, position = 3, test=4)
+#  pt     site position     test 
+#   1        2        3        4 
 ex2 <- t(ex1)
 #      pt site position test
 # [1,]  1    2        3    4
 ```
 
     
-    </td>
+</td>
   </tr>        
   <tr>
     <td>word</td>
@@ -40,7 +42,7 @@ manu <- unique(word(rownames(mtcars), 1))
 ```
 
       
-    </td>
+</td>
   </tr>
   <tr>
     <td>cut</td>
@@ -62,6 +64,6 @@ df                      # prints every row
 # 4      37  (35,45]  
 ```
        
-    </td>
+</td>
   </tr>        
 </table>
