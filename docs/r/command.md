@@ -18,11 +18,12 @@
     <td>Transpose
        
 ```r
-      ex1 <- c(pt = 1,site = 2, position = 3, test=4)
-      ex2 <- t(ex1)
-      #      pt site position test
-      # [1,]  1    2        3    4
+ex1 <- c(pt = 1,site = 2, position = 3, test=4)
+ex2 <- t(ex1)
+#      pt site position test
+# [1,]  1    2        3    4
 ```
+
     
     </td>
   </tr>        
@@ -31,12 +32,13 @@
     <td>
        
 ```r
-      library(stringr) 
-      dset <- mtcars 
-      dim(dset) 
-      rname=rownames(dset) 
-      manu <- unique(word(rownames(mtcars), 1))
+library(stringr) 
+dset <- mtcars 
+dim(dset) 
+rname=rownames(dset) 
+manu <- unique(word(rownames(mtcars), 1))
 ```
+
       
     </td>
   </tr>
@@ -45,19 +47,19 @@
     <td>
 
 ```r
-         incomes <- sample(35:100, 20, replace = TRUE)
-         factor(cut(incomes, breaks = 35+10*(0:7))) -> incomef
-         #[1] (85,95]  (75,85]  (65,75]  (35,45]  (75,85]  (35,45]  (95,105] (85,95]  (85,95]  (35,45]  (35,45]  (85,95]  (35,45] 
+incomes <- sample(35:100, 20, replace = TRUE)
+factor(cut(incomes, breaks = 35+10*(0:7))) -> incomef
+#[1] (85,95]  (75,85]  (65,75]  (35,45]  (75,85]  (35,45]  (95,105] (85,95]  (85,95]  (35,45]  (35,45]  (85,95]  (35,45] 
 [14] (75,85]  (75,85]  (45,55]  (35,45]  (35,45]  (45,55]  (65,75] 
 Levels: (35,45] (45,55] (65,75] (75,85] (85,95] (95,105]
-  # As data frame with income and cut
-        df <- data.frame(income = incomes, incomef = incomef)
-        df                      # prints every row  
-       #    income  incomef
-       # 1      86  (85,95]
-       # 2      80  (75,85]
-       # 3      67  (65,75]
-       # 4      37  (35,45]  
+ # As data frame with income and cut
+df <- data.frame(income = incomes, incomef = incomef)
+df                      # prints every row  
+#    income  incomef
+# 1      86  (85,95]
+# 2      80  (75,85]
+# 3      67  (65,75]
+# 4      37  (35,45]  
 ```
        
     </td>
