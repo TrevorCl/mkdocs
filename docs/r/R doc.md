@@ -262,6 +262,93 @@ music_genre[3] <- "Opera"
 music_genre[3]
 ```
 
+```r
+# a1 is a data frame with a group atttribute which is factor cyl
+a1 <- group_by(Data_Cars, cyl = factor(cyl), .drop = FALSE)
+# adding levels, and .drop allows for missing groups
+a1 <- group_by(Data_Cars, cyl = factor(cyl,levels = c(2,3,4,5,6,7,8)), .drop = FALSE)
+
+levels(a1$cyl)
+attributes(a1$cyl)  # $levels and $class
+attributes(a1$cyl)$levels  # $levels 
+group_keys(a1)      # one row per group
+n_groups(a1)        # number of groups
+```
+
+Mainly to give a categorical variable a fixed order or a fixed set of allowed values. Other functions then respect that without extra code.
+
+1. Sorting by meaning, not alphabetically
+arrange() sorts a factor by its level order:
+```r
+adae |>
+  mutate(AESEV = factor(AESEV, levels = c("MILD", "MODERATE", "SEVERE"))) |>
+  arrange(USUBJID, AESEV)
+```
+As a character column, AESEV would sort as MILD, MODERATE, SEVERE only by coincidence. Visit names, treatment arms, and labels like "Baseline", "Week 2", "Week 12" all sort wrongly alphabetically.
+
+2. Ordered comparisons
+An ordered factor supports <, >, max() and similar:
+```r
+sev <- factor(adae$AESEV, levels = c("MILD", "MODERATE", "SEVERE"), ordered = TRUE)
+
+sev > "MILD"   # TRUE for MODERATE and SEVERE
+max(sev)       # worst severity, e.g. per subject inside summarise()
+```
+
+
+This is handy for "worst grade per subject" derivations.
+
+3. Statistical models
+Model functions such as lm(), glm() and coxph() turn a factor into indicator variables, and the first level is the reference:
+```r
+adsl$TRT01P <- relevel(factor(adsl$TRT01P), ref = "Placebo")
+glm(RESPFL ~ TRT01P + AGE, data = adsl, family = binomial)
+```
+
+
+Coefficients are then estimates against Placebo. It works like CLASS and REF= in SAS procedures. A numeric code like cyl would be treated as a continuous variable unless you make it a factor.
+
+4. Plots and tables
+ggplot2 uses level order for axes, legends and facets. table() shows every level, including ones with zero counts:
+```r
+table(factor(c("MILD", "MILD"), levels = c("MILD", "MODERATE", "SEVERE")))
+#     MILD MODERATE   SEVERE
+#        2        0        0
+```
+
+
+5. Catching unexpected values
+Values that aren't in levels become NA, which exposes typos or unexpected codes:
+```r
+x <- factor(c("MILD", "Mild", "SEVERE"), levels = c("MILD", "MODERATE", "SEVERE"))
+x[is.na(x)]   # "Mild" was not an allowed value
+sum(is.na(x)) # 1V)
+```
+
+The flip side is that this also happens without warning when you didn't intend it, so check NA counts after converting.
+
+When to keep character
+For free text and identifiers such as USUBJID, AETERM or comments, keep character. For data you're still cleaning, convert to factor at the point where order or allowed values start to matter. The forcats package (fct_relevel(), fct_recode(), fct_infreq()) makes working with factors much easier.
+
+
+Problems with levels(factor(x)):
+
+It converts to character, so numbers come back as text.
+It drops NA without telling you.
+It builds a whole factor just to throw it away.
+Which to use
+|Need	|Use|
+|--|--|
+|Unique values of a vector|unique(x)|
+|Unique values, sorted|sort(unique(x))|
+|Unique values of a tibble column, as a tibble|distinct(df, cyl)
+|Unique combinations of several columns|distinct(df, cyl, gear)
+|Unique values with counts|count(df, cyl)
+|How many unique values|n_distinct(x)|
+count() is often the most useful while exploring data, because it shows NA and frequencies as well, much like PROC FREQ:
+
+
+
 
 # Data Frame
 ```r
