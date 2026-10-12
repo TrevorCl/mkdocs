@@ -28,6 +28,31 @@ ex2 <- t(ex1)
 
     
 </td>
+</td>tr>
+ <tr>
+<td>pivot_wider</td>
+<td>Transpose
+       
+```r
+  # Count and tranpose
+  library(tidyr)
+  s1 <-  count(Data_Cars, cyl, gear)
+  s2 <- t(s1)
+  
+  s2 <- s1 |>
+  pivot_wider(names_from = cyl, values_from = n, values_fill = 0) |>
+  arrange(gear)
+  s2
+  
+  
+  s1 <- count(Data_Cars, gear, carb, cyl)
+  s2 <- s1 |>
+    pivot_wider(names_from = cyl, values_from = n, values_fill = 0,
+                names_prefix = "cyl_") |>
+    arrange(gear, carb)
+```
+
+</td>
   </tr>        
   <tr>
     <td>word</td>
