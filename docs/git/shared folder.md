@@ -19,7 +19,7 @@ To avoid this in future, you can provide the message upfront:
 git merge main -m "merge main into dema"
 ```
 
-## how do you compare the current comiit against the previous is there a command like git diff HEAD^1
+## how do you compare the current commit against the previous is there a command like git diff HEAD^1
 ```bash
 git diff HEAD~1
 ```
